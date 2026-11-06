@@ -1,0 +1,15 @@
+{
+  "name": "dk-raju-general-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Online ordering platform for D.K. Raju General Store",
+  "engines": { "node": ">=20.19.0" },
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c green,blue \"npm:dev --prefix server\" \"npm:dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "test": "npm test --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

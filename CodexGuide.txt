@@ -1,0 +1,798 @@
+# MASTER DEVELOPMENT PROMPT
+# D.K. RAJU GENERAL STORE – COMPLETE FULL-STACK ONLINE GROCERY PLATFORM
+
+Act as a senior full-stack software engineer, software architect, UI/UX designer and database engineer.
+
+I want you to design and develop a complete, production-oriented full-stack online grocery ordering platform for my existing physical kirana shop.
+
+This is a real business application intended for real customers. Do not create a static demo, frontend-only prototype or college project.
+
+The website must be extremely easy to use for everyone, including elderly people, rural customers, Telugu-speaking users and people with limited technical knowledge.
+
+The business name is:
+
+**D.K. Raju General Store**
+
+Business location: Village-based kirana shop in Andhra Pradesh, India.
+
+Business model:
+- The shop owner uploads products and prices.
+- Customers browse available products online.
+- Customers order groceries from their homes.
+- The shop owner receives and manages orders.
+- The shop prepares and delivers groceries to customers.
+- Customers can pay through Cash on Delivery or online UPI payment.
+
+The platform must support customers within the shop's configured delivery service area.
+
+==================================================
+1. DEVELOPMENT APPROACH
+==================================================
+
+First inspect the existing project directory.
+
+If the project already contains code:
+- Understand its structure.
+- Preserve working functionality.
+- Avoid unnecessary rewrites.
+- Do not delete useful existing files.
+
+If it is an empty project:
+- Set up the complete project structure.
+
+Develop the application in logical modules.
+
+Do not stop after building the homepage.
+
+Implement the frontend, backend, database, authentication, APIs, order processing and admin dashboard.
+
+After implementation, run the available checks, fix errors and verify the important user flows.
+
+Do not claim that an integration is working until it has been tested.
+
+==================================================
+2. TECHNOLOGY STACK
+==================================================
+
+Frontend:
+- React.js
+- Vite
+- JavaScript
+- React Router
+- CSS
+- Context API or another simple state-management approach
+
+Backend:
+- Node.js
+- Express.js
+- REST APIs
+
+Database:
+- MongoDB
+- Mongoose
+
+Image storage:
+- Cloudinary
+
+Authentication:
+- Secure admin authentication.
+- Password hashing using bcrypt.
+- Secure HTTP-only authentication cookies or another appropriately secured session mechanism.
+
+Payments:
+- Cash on Delivery.
+- UPI payment through a legitimate payment gateway, such as Razorpay, subject to account eligibility and configuration.
+
+Additional requirements:
+- Environment variables.
+- Input validation.
+- Centralized error handling.
+- Clean modular architecture.
+
+Use JavaScript consistently. Do not unnecessarily introduce TypeScript, microservices or complex infrastructure.
+
+==================================================
+3. UI/UX DESIGN REQUIREMENTS
+==================================================
+
+The design is one of the highest priorities.
+
+Create a modern, welcoming, attractive and extremely user-friendly grocery website.
+
+Design identity:
+- Primary colour: Fresh green.
+- Secondary colour: White.
+- Supporting colours: Light grey and subtle neutral shades.
+- Clean typography.
+- Rounded product cards.
+- Large readable buttons.
+- Clear icons.
+- Consistent spacing.
+
+The website must be mobile-first and fully responsive.
+
+Target users:
+- Village customers.
+- Elderly people.
+- First-time online grocery shoppers.
+- Telugu-speaking customers.
+- Android smartphone users.
+
+Important usability rules:
+- Do not overcrowd the homepage.
+- Do not use complicated navigation.
+- Avoid unnecessary animations.
+- Avoid excessive popups.
+- Keep checkout short.
+- Make buttons easy to tap.
+- Display prices clearly in Indian Rupees.
+- Use readable fonts.
+- Show useful messages when something goes wrong.
+- Provide clear feedback after every important action.
+
+The interface must feel like shopping at a familiar neighbourhood grocery shop.
+
+==================================================
+4. CUSTOMER WEBSITE
+==================================================
+
+Build the following pages and functionality.
+
+A. HOME PAGE
+
+Include:
+- D.K. Raju General Store logo or text-based branding.
+- Welcome message.
+- Search bar.
+- Product categories.
+- Featured products.
+- Popular products.
+- Recently added products.
+- Cart icon with item count.
+- Store information.
+- Contact information.
+- Delivery information.
+- Footer.
+
+Use real products retrieved from MongoDB.
+
+Do not hardcode the entire catalogue into frontend components.
+
+B. PRODUCT CATEGORIES
+
+Create categories such as:
+- Rice and grains.
+- Pulses and dals.
+- Cooking oils.
+- Snacks and biscuits.
+- Beverages.
+- Dairy products.
+- Spices and masalas.
+- Household essentials.
+- Personal care.
+- Other groceries.
+
+Allow administrators to add, edit and delete categories.
+
+C. PRODUCT CATALOGUE
+
+Every product should contain:
+- Product name.
+- Product description.
+- Product image.
+- Category.
+- Selling price.
+- Optional original price.
+- Unit or package size.
+- Available stock.
+- Availability status.
+- Featured product status.
+
+Support units such as:
+- Gram.
+- Kilogram.
+- Millilitre.
+- Litre.
+- Packet.
+- Piece.
+- Box.
+
+Customers must be able to:
+- Browse products.
+- Search products.
+- Filter by category.
+- View product details.
+- Select quantities.
+- Add products to cart.
+
+Do not display unavailable products as orderable.
+
+D. PRODUCT SEARCH
+
+Implement:
+- Search by product name.
+- Case-insensitive search.
+- Search suggestions where practical.
+- Clear search button.
+- Friendly no-results message.
+
+E. SHOPPING CART
+
+Implement:
+- Add to cart.
+- Increase quantity.
+- Decrease quantity.
+- Remove products.
+- Display product images.
+- Display individual prices.
+- Calculate subtotal.
+- Calculate delivery charges.
+- Calculate final amount.
+
+Persist the cart appropriately so customers do not lose it during normal navigation or page refreshes.
+
+Always verify stock and prices again on the server during checkout.
+
+F. CHECKOUT
+
+Keep checkout extremely simple.
+
+Collect:
+- Customer name.
+- Mobile number.
+- Village/locality.
+- Complete delivery address.
+- Optional delivery instructions.
+
+Allow guest checkout without forcing customers to create accounts.
+
+Include:
+- Complete order summary.
+- Product quantities.
+- Subtotal.
+- Delivery charges.
+- Final total.
+- Payment selection.
+- Confirm order button.
+
+Validate mobile number and required fields.
+
+Prevent accidental duplicate orders.
+
+G. ORDER CONFIRMATION
+
+After successful order creation:
+- Generate a unique order number.
+- Display confirmation.
+- Display purchased products.
+- Display total amount.
+- Display payment method.
+- Display expected delivery information if configured.
+
+H. ORDER TRACKING
+
+Allow customers to check order status through a secure order lookup using their order number and verified mobile number.
+
+Statuses:
+1. Order Placed.
+2. Accepted.
+3. Preparing.
+4. Out for Delivery.
+5. Delivered.
+6. Cancelled.
+
+Do not expose other customers' personal information.
+
+==================================================
+5. TELUGU AND ENGLISH SUPPORT
+==================================================
+
+Provide a language switcher visible to customers.
+
+Languages:
+- Telugu.
+- English.
+
+Translate:
+- Navigation.
+- Buttons.
+- Product labels.
+- Categories.
+- Checkout.
+- Payment instructions.
+- Validation messages.
+- Order statuses.
+- Customer notifications.
+
+Use proper Telugu Unicode characters and a readable Telugu font.
+
+Remember that the majority of initial customers may prefer Telugu.
+
+Make language switching easy and preserve the selected language during navigation.
+
+Product names can remain in the language entered by the shop owner.
+
+==================================================
+6. ADMIN DASHBOARD
+==================================================
+
+Create a separate admin interface.
+
+The administrator must log in before accessing it.
+
+The admin interface should be simple enough for a shop owner with limited computer knowledge.
+
+A. ADMIN DASHBOARD OVERVIEW
+
+Display:
+- Total orders.
+- New orders.
+- Pending orders.
+- Delivered orders.
+- Total sales.
+- Number of active products.
+- Low-stock products.
+
+Use simple cards and readable charts where useful.
+
+B. PRODUCT MANAGEMENT
+
+Allow admin to:
+- Add products.
+- Edit products.
+- Delete products.
+- Upload product images.
+- Change product prices.
+- Change product descriptions.
+- Select product categories.
+- Update stock quantities.
+- Enable or disable product availability.
+- Mark products as featured.
+
+Product changes must immediately reflect on the customer website.
+
+C. INVENTORY MANAGEMENT
+
+Implement:
+- Current stock tracking.
+- Stock updates.
+- Low-stock alerts.
+- Stock adjustment history where practical.
+- Automatic stock reduction after confirmed orders.
+- Stock restoration when an eligible order is cancelled.
+
+Prevent overselling.
+
+Use atomic database operations or suitable transaction handling to avoid inconsistent stock during simultaneous orders.
+
+D. ORDER MANAGEMENT
+
+Admin must be able to:
+- View all orders.
+- View new orders.
+- View order details.
+- View customer contact information.
+- View delivery addresses.
+- View ordered products.
+- Accept orders.
+- Reject orders.
+- Update order statuses.
+- Cancel orders where appropriate.
+- View payment status.
+
+New orders should be clearly highlighted.
+
+E. CUSTOMER MANAGEMENT
+
+Display necessary customer information and order history.
+
+Protect personal information and only allow authorized administrators to access it.
+
+F. SALES REPORTS
+
+Implement:
+- Daily sales.
+- Weekly sales.
+- Monthly sales.
+- Order counts.
+- Best-selling products.
+- Sales totals.
+
+Clearly distinguish gross sales from actual profit.
+
+Do not calculate profit unless product purchase cost and other relevant costs have been configured.
+
+==================================================
+7. DELIVERY MANAGEMENT
+==================================================
+
+The physical kirana shop will arrange home delivery.
+
+Implement configurable delivery settings:
+- Shop name.
+- Shop address.
+- Contact number.
+- Serviceable villages and localities.
+- Delivery charges.
+- Optional minimum order value.
+- Estimated delivery time.
+
+Customers should select or enter their delivery location.
+
+Validate whether the location is serviceable before accepting an order.
+
+The admin should be able to update delivery status.
+
+Do not advertise delivery to locations that the shop cannot serve.
+
+==================================================
+8. PAYMENT MANAGEMENT
+==================================================
+
+Support two payment methods.
+
+A. CASH ON DELIVERY
+
+- Allow eligible customers to select Cash on Delivery.
+- Mark payment status as pending.
+- Update payment status after collection.
+
+B. ONLINE UPI PAYMENT
+
+Integrate a suitable payment gateway such as Razorpay when credentials are available.
+
+Requirements:
+- Create payment orders securely on the backend.
+- Verify payment signatures on the backend.
+- Store transaction references.
+- Handle successful and failed payments.
+- Prevent duplicate payment processing.
+- Update order payment status only after verified confirmation.
+
+Never trust frontend payment success alone.
+
+Never store UPI PINs, card details or sensitive payment credentials.
+
+If payment credentials are unavailable, provide a clear setup guide and keep the integration configurable.
+
+Do not falsely mark simulated payments as successful.
+
+==================================================
+9. CUSTOMER NOTIFICATIONS
+==================================================
+
+Implement a notification architecture for:
+- New order confirmation.
+- Order accepted.
+- Order preparing.
+- Out for delivery.
+- Order delivered.
+- Order cancelled.
+
+Start with in-website order confirmation and admin notifications.
+
+Prepare optional WhatsApp or SMS notification integration, but do not pretend messages are sent unless a real provider is configured.
+
+Keep notification settings configurable.
+
+==================================================
+10. DATABASE DESIGN
+==================================================
+
+Create properly structured MongoDB models.
+
+Required collections:
+
+1. Admin
+2. Product
+3. Category
+4. Customer
+5. Order
+6. Payment
+7. DeliverySettings
+8. InventoryTransaction
+
+Define:
+- Proper field types.
+- Required fields.
+- Validation.
+- Unique identifiers where needed.
+- Timestamps.
+- Appropriate indexes.
+
+Store order item names, prices and quantities as historical snapshots so that future product price changes do not alter old orders.
+
+Use consistent references between related collections.
+
+Use appropriate database transactions where supported and safe fallback strategies where not supported.
+
+==================================================
+11. BACKEND API DEVELOPMENT
+==================================================
+
+Create REST API endpoints grouped into modules.
+
+Authentication:
+- Admin login.
+- Admin logout.
+- Current admin profile.
+
+Products:
+- Get all active products.
+- Get product by ID.
+- Search products.
+- Filter products by category.
+- Admin create product.
+- Admin update product.
+- Admin delete product.
+
+Categories:
+- Get categories.
+- Admin create category.
+- Admin update category.
+- Admin delete category.
+
+Orders:
+- Create order.
+- Get order by secure lookup.
+- Admin get all orders.
+- Admin get order details.
+- Admin update order status.
+- Admin cancel or reject eligible orders.
+
+Inventory:
+- Get stock.
+- Update stock.
+- Get low-stock products.
+- Get inventory history.
+
+Payments:
+- Create payment.
+- Verify payment.
+- Handle payment failure.
+
+Reports:
+- Daily report.
+- Weekly report.
+- Monthly report.
+
+Delivery:
+- Get delivery settings.
+- Admin update delivery settings.
+- Validate serviceable location.
+
+Protect all admin routes with authentication and authorization middleware.
+
+Validate all incoming requests on the backend.
+
+Never trust prices, discounts, delivery charges or stock quantities sent by the browser.
+
+==================================================
+12. SECURITY
+==================================================
+
+Implement:
+- Password hashing.
+- Secure authentication.
+- Protected admin routes.
+- Server-side validation.
+- Rate limiting on sensitive endpoints.
+- Secure cookie configuration.
+- CORS configuration.
+- Safe error messages.
+- Environment variable protection.
+- Appropriate security headers.
+- File upload validation.
+- Access control.
+- Payment verification.
+- Protection against unauthorized stock and price modifications.
+
+Never expose admin credentials or database connection strings.
+
+Provide a safe initial admin creation or seed procedure.
+
+Do not include public default admin passwords in production.
+
+==================================================
+13. PROJECT STRUCTURE
+==================================================
+
+Use a clean modular structure.
+
+Suggested layout:
+
+dkr-general-store/
+  client/
+    src/
+      components/
+      pages/
+      layouts/
+      context/
+      hooks/
+      services/
+      utils/
+      assets/
+      translations/
+      styles/
+  server/
+    config/
+    controllers/
+    middleware/
+    models/
+    routes/
+    services/
+    utils/
+    scripts/
+  README.md
+
+.env.example
+
+You may adjust this structure if there is a clear technical reason.
+
+Keep frontend and backend responsibilities separate.
+
+Avoid putting the entire application into one large file.
+
+==================================================
+14. TESTING
+==================================================
+
+Test the important business flows.
+
+Customer tests:
+- Homepage loads.
+- Products display from MongoDB.
+- Search works.
+- Category filters work.
+- Cart calculations are correct.
+- Quantity changes work.
+- Checkout validation works.
+- Orders are created correctly.
+- Customers cannot view other customers' orders.
+- Service-area restrictions work.
+
+Admin tests:
+- Admin authentication works.
+- Unauthorized access is blocked.
+- Product creation works.
+- Product editing works.
+- Product deletion works.
+- Stock updates work.
+- Orders appear in dashboard.
+- Order status updates work.
+- Sales reports return accurate data.
+
+Business tests:
+- Prevent orders exceeding available stock.
+- Prevent duplicate orders.
+- Verify order totals on the server.
+- Handle failed payments correctly.
+- Restore eligible stock after cancellation.
+- Maintain historical order prices.
+
+Fix any errors discovered during testing.
+
+==================================================
+15. PERFORMANCE AND ACCESSIBILITY
+==================================================
+
+Optimize the website for rural internet conditions.
+
+Implement:
+- Image optimization.
+- Lazy loading.
+- Pagination for large product catalogues.
+- Responsive layouts.
+- Good loading states.
+- Error states.
+- Empty states.
+- Accessible labels.
+- Keyboard navigation.
+- Proper colour contrast.
+- Semantic HTML.
+
+Do not sacrifice usability for decorative design.
+
+==================================================
+16. DEPLOYMENT AND DOCUMENTATION
+==================================================
+
+Prepare the application for deployment.
+
+Provide:
+- Frontend deployment instructions.
+- Backend deployment instructions.
+- MongoDB Atlas configuration guide.
+- Cloudinary configuration guide.
+- Payment gateway configuration guide.
+- Environment variable documentation.
+- Admin account creation instructions.
+- Local development commands.
+- Production build commands.
+
+Create a comprehensive README.md.
+
+Include .env.example files without real credentials.
+
+Ensure production configuration does not expose secrets.
+
+==================================================
+17. IMPLEMENTATION ORDER
+==================================================
+
+Develop the application in this order:
+
+Phase 1:
+- Project setup.
+- Database connection.
+- Basic responsive design.
+- Customer homepage.
+- Categories and product catalogue.
+
+Phase 2:
+- Product details.
+- Search.
+- Shopping cart.
+- Checkout.
+
+Phase 3:
+- Backend order processing.
+- Customer order confirmation.
+- Secure order tracking.
+
+Phase 4:
+- Admin authentication.
+- Admin dashboard.
+- Product management.
+- Inventory management.
+- Order management.
+
+Phase 5:
+- Delivery settings.
+- Cash on Delivery.
+- Online payment gateway.
+
+Phase 6:
+- Telugu and English translation.
+- Notifications.
+- Sales reports.
+
+Phase 7:
+- Testing.
+- Security review.
+- Performance optimization.
+- Deployment preparation.
+
+Complete each phase properly before moving to the next.
+
+==================================================
+18. IMPORTANT RULES FOR CODEX
+==================================================
+
+1. Build a complete functional full-stack application.
+2. Do not produce only static frontend pages.
+3. Do not hardcode product data as the permanent database.
+4. Use MongoDB for persistent business data.
+5. Keep the interface extremely simple and intuitive.
+6. Avoid unnecessary features and technical complexity.
+7. Preserve consistent design throughout the website.
+8. Do not invent business details or credentials.
+9. Ask for essential missing configuration only when necessary.
+10. Do not overwrite working code unnecessarily.
+11. Run and fix build errors.
+12. Verify important customer and admin workflows.
+13. Explain how to run the project locally.
+14. Clearly identify any unfinished external integrations.
+15. Do not mark the project complete while essential functionality is broken.
+
+FINAL GOAL:
+
+Deliver a complete, responsive, secure and database-connected online grocery ordering platform for D.K. Raju General Store.
+
+A customer should be able to open the website, understand it immediately, find groceries, add products to the cart and place an order without confusion.
+
+The shop owner should be able to manage products, prices, inventory, orders and deliveries without technical knowledge.
+
+The website should be simple enough for everyone, professional enough for a real business and flexible enough to expand into nearby villages in the future.
+
+**Remember: We are digitizing an existing village kirana business, not building an unnecessarily complicated e-commerce marketplace.**
